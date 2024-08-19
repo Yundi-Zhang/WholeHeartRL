@@ -1,0 +1,48 @@
+general:
+  seed: 1 # 1 for 0.7 mask ratio, 32 for 0.9
+  wandb_disabled: "false"
+  # wandb_run_id: 
+  freeze_encoder: False
+  resume_training: False
+  load_encoder: False
+  ckpt_path: "your checkpoint"
+
+
+data:
+  replace_processed: False
+  sax_slice_num: 6 # 6 for 3D, 1 for 2D
+  image_size: [128, 128]
+  train_num_per_epoch: 1000
+  num_train: 6000
+  num_val: 100
+  num_test: 100
+  num_workers: 4
+  batch_size: 1
+  dataset_cls: Cardiac3DplusTAllAX
+
+
+module:
+  task_idx: 0 # reconstrucion: 0, regression: 1, segmentation: 2
+  module_idx: 0 # ReconMAE: 0, CLReconMAE: 1, DisentangleReconMAE: 2
+  
+  recon_hparams:
+    enc_embed_dim: 1025
+    enc_depth: 6
+    enc_num_heads: 5
+    dec_embed_dim: 1025
+    dec_depth: 2
+    dec_num_heads: 5
+
+  training_params:
+    patch_size: [25, 8, 8]
+    mask_type: "random"
+    mask_ratio: 0.7
+    loss_types: ["mse"] # [mse]
+    loss_weights: [1.0]
+    train_log_rate: 2
+    val_log_rate: 2
+
+
+trainer:
+  max_epochs: 300
+  check_val_every_n_epoch: 5

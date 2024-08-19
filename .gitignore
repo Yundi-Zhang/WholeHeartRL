@@ -1,0 +1,15 @@
+__pycache__/
+*.idea
+wandb
+experiments
+data/data_files/
+*.json
+*.sh
+.vscode/
+configs/check_points.yaml
+*.pkl
+*.pt
+*.npy
+*.csv
+visualization/
+ckpts/

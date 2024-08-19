@@ -1,0 +1,50 @@
+general:
+  seed: 1
+  wandb_disabled: "false"
+  # wandb_run_id: zfj1aw9x
+  freeze_encoder: False
+  resume_training: False
+  load_encoder: True
+  ckpt_path: "your checkpoint"
+
+
+data:
+  replace_processed: False
+  sax_slice_num: 6 # 6 for 3D, 1 for 2D
+  image_size: [128, 128]
+  train_num_per_epoch: 1000
+  num_train: 6000
+  num_val: 100
+  num_test: 100
+  num_workers: 4
+  batch_size: 1
+  dataset_cls: Cardiac3DplusTAllAX
+  target_value_name: "LVM (g)" # "Age", "LVM (g)", "RAEF (%)", "RVEF (%)", "RVEDV (mL)", "LASV (mL)"
+
+
+module:
+  task_idx: 1 # reconstrucion: 0, regression: 1, segmentation: 2
+  module_idx: 0 # RegrMAE: 0, ResNet18: 1, ResNet50: 2
+  
+  regr_hparams:
+    enc_embed_dim: 1025
+    enc_depth: 6
+    enc_num_heads: 5
+    dec_embed_dim: 256
+    dec_depth: 2
+    regressor_type: "cls_token" # "linear", "cls_token"
+
+  training_params:
+    lr: 0.00001
+    patch_size: [25, 8, 8]
+    mask_type: "random"
+    mask_ratio: 0.7
+    loss_types: ["huber"] # [mse]
+    loss_weights: [1.0]
+    train_log_rate: 2
+    val_log_rate: 2
+
+
+trainer:
+  max_epochs: 300
+  check_val_every_n_epoch: 5
