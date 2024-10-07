@@ -1,7 +1,7 @@
 # Whole Heart 3D+T Representation Learning Through Sparse 2D Cardiac MR Images
 Yundi Zhang, Chen Chen, Suprosanna Shit, Sophie Starck, Daniel Rueckert, and Jiazhen Pan
 
-This repository contains the code used in the research paper: [Whole Heart 3D+T Representation Learning Through Sparse 2D Cardiac MR Images](https://arxiv.org/pdf/2406.00329), accepted by MICCAI 2024. For more details, please refer to the paper.
+This repository contains the code used in the research paper: [Whole Heart 3D+T Representation Learning Through Sparse 2D Cardiac MR Images](https://link.springer.com/chapter/10.1007/978-3-031-72378-0_34#Abs1), accepted by MICCAI 2024. For more details, please refer to the paper.
 ![Diagram](main_structure.png)
 ## Description
 In this project, we introduce a novel **self-supervised learning** framework for generating comprehensive **3D+T representations of the whole heart** using sparse 2D cardiac MRI sequences. Key features include:
