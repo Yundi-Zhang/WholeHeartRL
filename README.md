@@ -9,9 +9,9 @@ In this project, we introduce a novel **self-supervised learning** framework for
 - Utilizes masked imaging modeling to uncover correlations between spatial and temporal patches across cardiac MRI stacks
 - Learns meaningful heart representations without requiring labeled data
 - Demonstrates robustness and consistency even when some MRI planes are missing
-- Trained on 14,000 unlabeled cardiac MRI scans from UK Biobank and evaluated on 1,000 annotated scans for downstream tasks
+- Trained on 14,000 unlabeled cardiac MRI scans from the UK Biobank and evaluated on 1,000 annotated scans for downstream tasks
 - Outperforms baselines on tasks requiring comprehensive 3D+T cardiac information:
-    - Cardiac phenotype prediction (e.g. ejection fraction, ventricle volume)
+    - Cardiac phenotype prediction (e.g., ejection fraction, ventricular volume)
     - Multi-plane/multi-frame cardiac MRI segmentation
 
 The learned representations can be directly applied to various downstream cardiac analysis tasks. The method's ability to handle incomplete inputs and integrate spatiotemporal information from sparse MRI planes makes it promising for practical clinical applications.
@@ -102,7 +102,7 @@ This project uses `.npz` files to store processed image data. Each `.npz` file c
 - **`seg_sax`**: Segmentation maps for short-axis images.
 - **`seg_lax`**: Segmentation maps for long-axis images.
 
-#### Example Structure fo preprocessed data
+#### Example structure of preprocessed data
 
 The `.npz` file contains a dictionary like this:
 
@@ -117,15 +117,15 @@ The `.npz` file contains a dictionary like this:
 
 
 ## Usage
-This project supports three tasks: **Pertaining**, **Segmentation**, and **Regression**. Follow the instructions below to run the application for each task:
+This project supports three tasks: **Pretraining**, **Segmentation**, and **Regression**. Follow the instructions below to run the application for each task:
 
-1. **Pertaining**: Follow the specific instructions provided for the Pertaining task.
+1. **Pretraining**: Follow the specific instructions provided for the Pretraining task.
 
 2. **Segmentation**: To run the Segmentation task, make sure to specify the pretraining checkpoint path by setting the `general.ckpt_path` parameter.
 
 3. **Regression**: For the Regression task, you also need to provide the pretraining checkpoint path using the `general.ckpt_path` parameter.
 
-#### Pertaining via reconstruction
+#### Pretraining via reconstruction
 ```bash
 source .env
 python3 main.py train \
@@ -154,4 +154,4 @@ python3 main.py train \
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
-For questions or suggestions, contact [yundi.zhang@tum.de](mailto:yundi.zhang@tum.de) or [jiazhen.pan@tum.de](mailto:jiazhen.pan@tum.de). If you use this code in your research, please cite the above mentioned paper.
+For questions or suggestions, contact [yundi.zhang@tum.de](mailto:yundi.zhang@tum.de) or [jiazhen.pan@tum.de](mailto:jiazhen.pan@tum.de). If you use this code in your research, please cite the above-mentioned paper.
